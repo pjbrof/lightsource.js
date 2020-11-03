@@ -3,8 +3,12 @@ const SHADOW_COLOR = "#888";
 
 const makeShade = (xPos, yPos, color) => {
   document.querySelectorAll(".shadow").forEach((el) => {
-    const leftDiff = xPos - el.offsetLeft + el.clientWidth / 2;
-    const topDiff = yPos - el.offsetTop + el.clientHeight / 2;
+    const lightSourceXPosition =
+      xPos || light.offsetLeft + light.clientWidth / 2;
+    const lightSourceYPosition =
+      yPos || light.offsetTop + light.clientHeight / 2;
+    const leftDiff = lightSourceXPosition - el.offsetLeft + el.clientWidth / 2;
+    const topDiff = lightSourceYPosition - el.offsetTop + el.clientHeight / 2;
 
     const left = (leftDiff / 10) * -1;
     const top = (topDiff / 10) * -1;
@@ -21,3 +25,5 @@ makeShade(
   light.offsetTop + light.clientHeight / 2,
   SHADOW_COLOR
 );
+
+export default makeShade;
