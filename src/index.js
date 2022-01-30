@@ -1,7 +1,7 @@
 const light = document.getElementById("lightsource");
 const SHADOW_COLOR = "#888";
 
-const makeShade = (xPos, yPos, color) => {
+const throwShade = (xPos, yPos, color) => {
   document.querySelectorAll(".shadow").forEach((el) => {
     const lightSourceXPosition =
       xPos || light.offsetLeft + light.clientWidth / 2;
@@ -20,10 +20,10 @@ const makeShade = (xPos, yPos, color) => {
   });
 };
 
-makeShade(
+throwShade(
   light.offsetLeft + light.clientWidth / 2,
   light.offsetTop + light.clientHeight / 2,
   SHADOW_COLOR
 );
 
-export default makeShade;
+export default throwShade;
